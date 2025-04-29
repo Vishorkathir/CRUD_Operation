@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</head>
+
+<body class=" bg-dark">
+  <!-- navbar -->
+  
+  <div class="container mt-5">
+    <div class="row">
+
+      <!-- form -->
+
+      <div class=" text-bg-primary col-6 mt-2" style="border-radius: 20px;">
+        <div class="m-2">
+          <div class="card" style="border-radius: 20px;">
+            <div class="card-body">
+              <h3 class="text-bg-primary" style="text-align:center; border-radius: 10px; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Submit Data</h3>
+              <div class="row">
+
+                <!-- first name -->
+                <div class="col-6">
+                  <div class="mb-5">
+                    <label for="exampleFormControlInput1" class="form-label" style="font-weight: 500;">FirstName</label>
+                    <input type="text" id="inputfname" class="form-control" id="exampleFormControlInput1"
+                      placeholder="firstname" required>
+                  </div>
+                </div>
+
+                <!-- last name -->
+                <div class="col-6">
+                  <div class="mb-5">
+                    <label for="exampleFormControlInput1" class="form-label" style="font-weight: 500;">LastName</label>
+                    <input type="text" id="inputlname" class="form-control" id="exampleFormControlInput1"
+                      placeholder="lastname" required>
+                  </div>
+                </div>
+
+                <!-- email -->
+                <div class="col-6">
+                  <div class="mb-5">
+                    <label for="exampleFormControlInput1" class="form-label" style="font-weight: 500;">Email Address</label>
+                    <input type="email" id="inputemail" class="form-control" id="exampleFormControlInput1"
+                      placeholder="@gmail.com" required>
+                  </div>
+                </div>
+
+                <!-- phone number -->
+                <div class="col-6">
+                  <div class="mb-5">
+                    <label for="exampleFormControlInput1" class="form-label" style="font-weight: 500;">Phone Number</label>
+                    <input type="number" id="inputphone" class="form-control" id="exampleFormControlInput1"
+                      placeholder="phonenumber" required>
+                  </div>
+                </div>
+
+                <!-- submit -->
+
+                <button class="col-6 bg-success  mb-1 " style="border-radius:20px; font-weight: 500; font-style: italic;" onclick="submitValue()">submit</button>
+
+                
+
+
+
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- table -->
+      <div class=" mt-2 text-bg-primary" style="border-radius: 20px;">
+        <div class="" >
+          <table class="table"  >
+            <h1 style="text-align: center;">Data</h1>
+            <table class="table" >
+              <thead>
+                <tr>
+                  <th scope="col">Index</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Phone number</th>
+                  <th scope="col">Edition</th>
+                  <th scope="col">Deletion</th>
+                </tr>
+              </thead>
+              <tbody id="userDetails" >
+                <tr>
+                  <th>1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th>3</th>
+                  <td colspan="2">Larry the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+          </table>
+        </div>
+
+      </div>
+      
+    </div>
+  </div>
+  <script>
+    //form submition
+
+    const submitValue = () => {
+      //getting the value from inputvalues
+      var Enteredfname = document.getElementById('inputfname').value;
+      var Enteredlname = document.getElementById('inputlname').value;
+      var Enteredemail = document.getElementById('inputemail').value;
+      var Enteredphone = document.getElementById('inputphone').value;
+      console.log(Enteredfname, Enteredlname, Enteredemail, Enteredphone);
+
+      //add new data
+      let newData = {
+        fname: Enteredfname,
+        lname: Enteredlname,
+        email: Enteredemail,
+        phonenumber: Enteredphone,
+
+      }
+      console.log(newData);
+
+
+      //insert the new data by .push
+      arr.push(newData);
+      console.log(arr);
+
+      //call tablerender because store the data
+      tableRender();
+
+    };
+    //Record delete
+    const deleteValue = (index) => {
+
+      console.log(index);
+
+      arr.splice(index, 1);
+      tableRender();
+
+    };
+
+    let arr = [
+      {
+        fname: 'Vishor',
+        lname: 'G',
+        email: 'vishor@gmail.com',
+        phonenumber: 9774528631,
+      },
+      {
+        fname: 'Kathir',
+        lname: 'V',
+        email: 'kathir@gmail.com',
+        phonenumber: 9836526521,
+      },
+      {
+        fname: 'Shabarish',
+        lname: 'A',
+        email: 'sabari012@gmail.com',
+        phonenumber: 7363528221,
+      },
+      {
+        fname: 'Prasanna',
+        lname: 'R',
+        email: 'prasanna112@gmail.com',
+        phonenumber: 9368443958,
+      }
+
+    ]
+    const tableRender = () => {
+      document.getElementById('userDetails').innerHTML = arr.map((data, index) => {
+        return `<tr>
+                <td>${index + 1}</td>
+                <td>${data.fname}</td>
+                <td>${data.lname}</td>
+                <td>${data.email}</td>
+                <td>${data.phonenumber}</td>
+                <td><button type="submit" class="btn btn-success">Edit</button></td>
+                <td><button type="submit" class="btn btn-danger" onclick='deleteValue(${index})'>Delete</button></td>
+                </tr>`
+      }).join(' ')
+    }
+    tableRender();
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>
